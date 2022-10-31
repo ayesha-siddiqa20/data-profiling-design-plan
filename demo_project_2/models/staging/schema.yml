@@ -1,0 +1,136 @@
+version: 2
+
+sources:
+  - name: jaffle_shop # this name can be anything (an alias)
+    database: dbt-scotia-demo  # our database name
+    schema: demo_data         # this is our dataset name
+    description: A database to test the column-level stats using dbt
+    tables: 
+      - name: sample-data  # name of our table
+        # columns: 
+        #     - name: num_sold
+        #       description: Primary key of the table
+        #       tests:
+        #         - unique
+        #         - not_null
+
+
+models:
+  - name: min_model
+    description: "A starter dbt model"
+    columns:
+      - name: min_number
+        description: The number sold
+        tests:
+          - unique
+          - not_null
+
+  - name: decimal_digits_model
+    columns: 
+      - name: price_length
+        tests: 
+          - not_null
+
+  - name: min_length_num
+    description: size of the smallest value for numbers identified within a data set
+    columns: 
+      - name: length
+        tests:
+          - not_null
+          - unique
+
+  - name: min_length_str
+    description: size of the smallest value for strings identified within a data set
+    columns: 
+      - name: length
+        tests:
+          - not_null
+          - unique
+
+  - name: mean_value
+    description: the average of values within a data set
+    columns: 
+      - name: average_value
+        tests:
+          - not_null
+          - unique
+
+  - name: mode_model
+    description: the average of values within a data set
+    columns:
+      - name: mode_value
+        tests: 
+          - not_null
+          - unique
+
+  - name: sum_model
+    description: the sum of all the price values within the data set
+    columns:
+      - name: total_price
+        tests:
+          - not_null
+          - unique
+
+  - name: max_length_after_trim_model
+    description: the size of the longest value identified after removing leading + trailing zeroes within the data set
+    columns:
+      - name: max_length
+        tests:
+          - not_null
+          - unique
+
+  - name: percentile_model
+    description: a value at a a particular rank within the data set. 
+    columns:
+      - name: percent_rank
+        tests:
+          - not_null
+
+  - name: number_of_records_mdoel
+    description: total number of records in dataset
+    columns:
+      - name: number_of_records
+        tests:
+          - not_null
+          - unique
+
+  - name: number_of_nulls_model
+    description: total number of nulls in data set 
+    columns:
+      - name: number_of_nulls
+        tests:
+          - not_null
+          - unique
+
+  - name: trailing_leading_spaces_model
+    description: count of all records with trailing and leading spaces
+    columns:
+      - name: num_trailing_leading
+        tests:
+          - not_null
+          - unique
+
+  - name: trailing_spaces_only_model
+    description: count of all records with trailing spaces
+    columns:
+      - name: num_trailing
+        tests:
+          - not_null
+          - unique
+
+  - name: empty_null_constraint_model
+    description: Provides a Y/N indicator if empty or null values are present in a data set.
+    columns:
+      - name: Y_N_value
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['True', 'False']
+
+  - name: skewness_model
+    description: count of all records with trailing spaces
+    columns:
+      - name: pearson_coeff
+        tests:
+          - not_null
+          - unique
