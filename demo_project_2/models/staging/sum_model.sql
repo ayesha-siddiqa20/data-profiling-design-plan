@@ -3,7 +3,7 @@ with source_data as (
   SELECT
       SUM(price) as total_price
   FROM
-      {{source('jaffle_shop', 'sample-data')}}
+      `dbt-scotia-demo.demo_data.sample-data`
   GROUP By
       brand ),
 

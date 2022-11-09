@@ -1,5 +1,5 @@
 with price_num as (
-    select CAST(price as BIGNUMERIC) as price from {{source('jaffle_shop', 'sample-data')}}
+    select CAST(price as BIGNUMERIC) as price from `dbt-scotia-demo.demo_data.sample-data`
 ),
 
 ordered_price as (

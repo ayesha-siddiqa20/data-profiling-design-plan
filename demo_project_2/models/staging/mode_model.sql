@@ -4,7 +4,7 @@ SELECT
     brand,
     COUNT(*) as cnt
 FROM
-    {{source('jaffle_shop', 'sample-data')}}
+    `dbt-scotia-demo.demo_data.sample-data`
 GROUP By
     brand
 ),

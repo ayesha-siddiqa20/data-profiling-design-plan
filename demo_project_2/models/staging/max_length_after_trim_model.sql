@@ -2,7 +2,7 @@ with source_data as
 	(
     SELECT REPLACE(LTRIM(REPLACE(CAST(price as string),'0',' ')),' ','0')
     as num
-    FROM {{source('jaffle_shop', 'sample-data')}}
+    FROM `dbt-scotia-demo.demo_data.sample-data`
     ),
 
 final as (

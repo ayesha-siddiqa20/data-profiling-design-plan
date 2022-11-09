@@ -1,6 +1,6 @@
 with source_data as (
 SELECT MIN(LENGTH(CAST(price as string)))
-as length FROM {{source('jaffle_shop', 'sample-data')}} ) ,
+as length FROM `dbt-scotia-demo.demo_data.sample-data` ) ,
 
 
 final as (

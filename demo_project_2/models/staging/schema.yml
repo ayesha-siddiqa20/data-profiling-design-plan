@@ -1,23 +1,8 @@
 version: 2
 
-sources:
-  - name: jaffle_shop # this name can be anything (an alias)
-    database: dbt-scotia-demo  # our database name
-    schema: demo_data         # this is our dataset name
-    description: A database to test the column-level stats using dbt
-    tables: 
-      - name: sample-data  # name of our table
-        # columns: 
-        #     - name: num_sold
-        #       description: Primary key of the table
-        #       tests:
-        #         - unique
-        #         - not_null
-
-
 models:
   - name: min_model
-    description: "A starter dbt model"
+    description: Finding the smallest value in the num_sold column
     columns:
       - name: min_number
         description: The number sold
@@ -86,7 +71,7 @@ models:
         tests:
           - not_null
 
-  - name: number_of_records_mdoel
+  - name: number_of_records_model
     description: total number of records in dataset
     columns:
       - name: number_of_records

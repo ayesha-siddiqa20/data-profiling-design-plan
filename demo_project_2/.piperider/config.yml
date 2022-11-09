@@ -1,0 +1,29 @@
+dataSources:
+- name: demo_project_2
+  type: bigquery
+  dbt:
+    profile: demo_project_2
+    target: dev
+    projectDir: .
+
+# profiler:
+#   table:
+#     # the maximum row count to profile. (Default unlimited)
+#     limit: 1000000
+#     duplicateRows: false
+
+# The tables to include/exclude
+# includes: []
+# excludes: []
+
+# tables:
+#   my-table-name:
+#     # description of the table
+#     description: "this is a table description"
+#     columns:
+#       my-col-name:
+#         # description of the column
+#         description: "this is a column description"
+
+telemetry:
+  id: dd41a8a5ad3a4e5e8e68af12c31f8a7f

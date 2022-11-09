@@ -1,6 +1,6 @@
 with source_data as (
 SELECT MIN(LENGTH(brand)) as length FROM 
- {{source('jaffle_shop', 'sample-data')}} ) ,
+ `dbt-scotia-demo.demo_data.sample-data`) ,
 
 
 final as (

@@ -5,7 +5,7 @@ select
         cast(price as string),
         instr(cast(price as string), '.') + 1
     )
-) as price_length from {{source('jaffle_shop', 'sample-data')}}),
+) as price_length from `dbt-scotia-demo.demo_data.sample-data`),
 
 
 final as (
